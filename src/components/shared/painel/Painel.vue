@@ -1,5 +1,5 @@
 <template>
-  <div class="card m-2" style="width: 18rem;">
+  <div class="card m-2" style="width: 18rem">
     <div class="card-body" v-on:click="visivel = !visivel">
       <h5 class="card-title text-center">{{ titulo }}</h5>
     </div>
