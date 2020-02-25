@@ -1,15 +1,23 @@
 <template>
   <div class="card m-2" style="width: 18rem;">
-    <slot></slot>
-    <div class="card-body">
+    <div class="card-body" v-on:dblclick="visivel = !visivel">
       <h5 class="card-title text-center">{{ titulo }}</h5>
+    </div>
+    <div v-show="visivel" @dblclick="visivel = !visivel">
+      <slot></slot>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["titulo", "foto_url"]
+  props: ["titulo"],
+
+  data() {
+    return {
+      visivel: true
+    };
+  }
 };
 </script>
 

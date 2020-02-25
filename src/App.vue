@@ -14,10 +14,10 @@
         v-bind:key="foto.id"
         v-for="foto of fotosComFiltro"
       >
-        <meu-painel :titulo="foto.titulo" :foto_url="foto.url">
+        <meu-painel :titulo="foto.titulo">
           <img
             :src="foto.url"
-            class="card-img-topw-100"
+            class="card-img-top w-100"
             height="250px"
             :alt="titulo"
           />
