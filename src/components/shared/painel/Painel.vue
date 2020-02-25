@@ -13,4 +13,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.card {
+  box-shadow: 2px 2px 10px rgba(68, 68, 68, 0.1);
+}
+</style>
