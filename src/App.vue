@@ -12,7 +12,7 @@
       <li
         style="list-style-type: none;"
         v-bind:key="foto.id"
-        v-for="foto of fotos"
+        v-for="foto of fotosComFiltro"
       >
         <meu-painel :titulo="foto.titulo" :foto_url="foto.url">
           <img
@@ -42,6 +42,17 @@ export default {
       fotos: [],
       filtro: ""
     };
+  },
+  computed: {
+    fotosComFiltro() {
+      if (this.filtro) {
+        /*filtrar*/
+        let exp = new RegExp(this.filtro.trim(), "i");
+        return this.fotos.filter(foto => exp.test(foto.titulo));
+      } else {
+        return this.fotos;
+      }
+    }
   },
   //funcao que executa assim que o componente é criado
   //life cicle hooks
