@@ -1,9 +1,8 @@
 <template>
   <div>
-    <h1>Lista de fotos</h1>
     <ul>
       <li v-bind:key="foto.id" v-for="foto of fotos">
-        <h1>{{ titulo }}</h1>
+        <h1>{{ foto.titulo }}</h1>
         <img :src="foto.url" :alt="foto.titulo" />
       </li>
     </ul>
@@ -14,14 +13,19 @@
 export default {
   data() {
     return {
-      titulo: "Alurapic",
+      titulo: "Alurapica",
       fotos: []
     };
   },
   //funcao que executa assim que o componente é criado
   //life cicle hooks
   created() {
-    alert("componente criado");
+    let promise = this.$http.get("http://localhost:3000/v1/fotos");
+    //promisse com a resposta do servidor em json
+    promise
+      .then(res => res.json())
+      .then(_fotos => (this.fotos = _fotos)) //acessando a foto da funcao data
+      .then(err => console.log(err));
   }
 };
 </script>
