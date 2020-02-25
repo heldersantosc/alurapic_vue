@@ -1,6 +1,14 @@
 <template>
-  <div class="container">
-    <ul class="card-group">
+  <div class="container m-5">
+    <div class="row justify-content-center">
+      <input
+        type="search"
+        v-on:input="filtro = $event.target.value"
+        class="form-control w-50"
+        placeholder="Filtro"
+      />
+    </div>
+    <ul class="card-group row row-cols-1 row-cols-md-3">
       <li
         style="list-style-type: none;"
         v-bind:key="foto.id"
@@ -31,7 +39,8 @@ export default {
   data() {
     return {
       titulo: "Alurapica",
-      fotos: []
+      fotos: [],
+      filtro: ""
     };
   },
   //funcao que executa assim que o componente é criado
