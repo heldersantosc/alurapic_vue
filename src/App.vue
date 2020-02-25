@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1>Lista de fotos</h1>
     <ul>
       <li v-bind:key="foto.id" v-for="foto of fotos">
         <h1>{{ titulo }}</h1>
