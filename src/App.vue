@@ -1,16 +1,33 @@
 <template>
-  <div>
-    <ul>
-      <li v-bind:key="foto.id" v-for="foto of fotos">
-        <h1>{{ foto.titulo }}</h1>
-        <img :src="foto.url" :alt="foto.titulo" />
+  <div class="container">
+    <ul class="card-group">
+      <li
+        style="list-style-type: none;"
+        v-bind:key="foto.id"
+        v-for="foto of fotos"
+      >
+        <meu-painel :titulo="foto.titulo" :foto_url="foto.url">
+          <img
+            :src="foto.url"
+            class="card-img-topw-100"
+            height="250px"
+            :alt="titulo"
+          />
+        </meu-painel>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
+//importando componente
+import Painel from "./components/shared/painel/Painel.vue";
+
 export default {
+  components: {
+    "meu-painel": Painel
+  },
+
   data() {
     return {
       titulo: "Alurapica",
@@ -30,9 +47,4 @@ export default {
 };
 </script>
 
-<style>
-body {
-  background-color: black;
-  color: white;
-}
-</style>
+<style></style>

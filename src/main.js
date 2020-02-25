@@ -4,6 +4,8 @@ import App from "./App.vue";
 //importando para usar a API
 import VueResource from "vue-resource";
 
+//importando o bootstrap e jquery
+
 //informando que alguns recursos estarão disponiveis para os componentes
 Vue.use(VueResource);
 
