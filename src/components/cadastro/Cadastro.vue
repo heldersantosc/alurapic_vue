@@ -1,6 +1,6 @@
 <template>
-  <div class="container m-5">
-    <router-view></router-view>
+  <div>
+    <h2 class="text-center">Cadastro</h2>
   </div>
 </template>
 
