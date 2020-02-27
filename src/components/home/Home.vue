@@ -14,8 +14,16 @@
         v-bind:key="foto.id"
         v-for="foto of fotosComFiltro"
       >
-        <meu-painel :titulo="foto.titulo">
+        <meu-painel :titulo="foto.titulo" class="text-center">
           <imagem-responsiva :url="foto.url" :titulo="foto.titulo" />
+          <meu-botao
+            tipo="button"
+            rotulo="REMOVER"
+            @botaoAtivado="remove($event, foto)"
+            :confirmacao="false"
+            estilo="danger"
+            class="m-2"
+          ></meu-botao>
         </meu-painel>
       </li>
     </ul>
@@ -26,11 +34,13 @@
 //importando componente
 import Painel from "../shared/painel/Painel.vue";
 import ImagemResponsiva from "../shared/imagem-responsiva/ImagemResponsiva.vue";
+import Botao from "../shared/botao/Botao.vue";
 
 export default {
   components: {
     "meu-painel": Painel,
-    "imagem-responsiva": ImagemResponsiva
+    "imagem-responsiva": ImagemResponsiva,
+    "meu-botao": Botao
   },
 
   data() {
@@ -49,6 +59,19 @@ export default {
       } else {
         return this.fotos;
       }
+    }
+  },
+  methods: {
+    remove($event, foto) {
+      if ($event) {
+        alert($event);
+      } //recebendo evento, variavel do elemento pai)
+      alert("remover foto" + foto.titulo);
+      /*
+      if (confirm("Confirma operacao?")) {
+        alert("remover foto" + foto.titulo);
+      }
+      */
     }
   },
   //funcao que executa assim que o componente é criado
